@@ -5,13 +5,14 @@ public class PlayerController : MonoBehaviour {
 
 	[HideInInspector] public bool facingRight = true;
 	[HideInInspector] public bool jump = false;
-	public float moveForce = 365f;
-	public float maxSpeed = 5f;
-	public float jumpForce = 1000f;
+	public float moveForce = 150f;
+	public float maxSpeed = 2.5f;
+	public float jumpForce = 200f;
 	public Transform groundCheck;
 	public PlayerGroundCollider groundCollider;
 
 	public int dimension;
+	public int maxHealth;
 
 
 	//private bool grounded = false;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour {
 		if (WorldControlManager.enabledWorld == dimension) {
 			h = Input.GetAxis ("Horizontal");
 		}
+
+
 		//anim.SetFloat("Speed", Mathf.Abs(h));
 
 		if (h * rb.velocity.x < maxSpeed)
