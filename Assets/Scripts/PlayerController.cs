@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour {
 	public PlayerGroundCollider groundCollider;
 
 	public int dimension;
-	public int maxHealth;
+	public float maxHealth = 100f;
 
 
 	//private bool grounded = false;
 	//private Animator anim;
 	private Rigidbody rb;
+
+	private float health;
 
 
 	// Use this for initialization
@@ -25,12 +27,20 @@ public class PlayerController : MonoBehaviour {
 	{
 		//anim = GetComponent<Animator>();
 		rb = GetComponent<Rigidbody>();
+
+	}
+
+	void Start(){
+		health = maxHealth;
+
 	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (health < maxHealth) {
+			health++;
+		}
 		//grounded = Physics.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 		if (WorldControlManager.enabledWorld == dimension) {
 			if (Input.GetButtonDown ("Jump") && groundCollider.grounded) {
@@ -38,6 +48,19 @@ public class PlayerController : MonoBehaviour {
 				groundCollider.grounded = false;
 			}
 		}
+	}
+
+	public void Damage(float damage){
+		print (health);
+		health -= Mathf.Abs(damage);
+		if (health <= 0) {
+			Die ();
+		}
+	}
+
+	void Die(){
+		print("DEAD!!!");
+		transform.Translate (new Vector3(0, 0, 100f));
 	}
 
 	void FixedUpdate()

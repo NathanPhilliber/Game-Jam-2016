@@ -12,10 +12,12 @@ public class EnemyBehavior : MonoBehaviour {
 	public float inRange = 1f;
 
 	private Rigidbody rb;
+	private PlayerController player;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
+		player = target.GetComponent<PlayerController> ();
 	}
 	
 	// Update is called once per frame
@@ -26,18 +28,23 @@ public class EnemyBehavior : MonoBehaviour {
 	void FixedUpdate(){
 		if (Mathf.Abs (target.transform.position.x - transform.position.x) > inRange) {
 			MoveTowardsTarget ();
+		} else {
+			player.Damage (8);
 		}
 	}
 
 	void MoveTowardsTarget(){
-		float h = Mathf.Sign (target.transform.position.x-transform.position.x);
+		float xDir = Mathf.Sign (target.transform.position.x-transform.position.x);
+		float yDir = Mathf.Sign (target.transform.position.y-transform.position.y);
 
-		if (h * rb.velocity.x < maxSpeed) {
-			rb.AddForce (Vector2.right * h * moveForce);
+		if (xDir * rb.velocity.x < maxSpeed) {
+			rb.AddForce (Vector2.right * xDir * moveForce);
 		}
 
 		if (Mathf.Abs (rb.velocity.x) > maxSpeed) {
 			rb.velocity = new Vector2 (Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
 		}
+
+
 	}
 }
