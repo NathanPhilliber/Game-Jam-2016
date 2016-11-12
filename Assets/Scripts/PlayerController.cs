@@ -95,9 +95,12 @@ public class PlayerController : MonoBehaviour {
 			rb.AddForce(Vector2.right * h * moveForce);
 
 
-
 		if (Mathf.Abs (rb.velocity.x) > maxSpeed)
 			rb.velocity = new Vector2(Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
+
+		if (Mathf.Abs(h) <= 0.1f) {
+			rb.velocity = new Vector3(0,rb.velocity.y,0);
+		}
 
 		if (h > 0 && !facingRight)
 			Flip ();

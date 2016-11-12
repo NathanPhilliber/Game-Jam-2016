@@ -10,6 +10,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public float jumpForce = 200f;
 
 	public float inRange = .4f;
+	public float maxHealth;
+	private float health;
 
 	public SpriteRenderer sprite;
 	private bool facingLeft;
@@ -22,6 +24,7 @@ public class EnemyBehavior : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		player = target.GetComponent<PlayerController> ();
 		facingLeft = transform.position.x > target.transform.position.x;
+		health = maxHealth;
 	}
 	
 	// Update is called once per frame
@@ -38,8 +41,25 @@ public class EnemyBehavior : MonoBehaviour {
 		}
 	}
 
+	public void Damage(float damage, bool knockback, Vector3 damagerPos){
+		health -= damage;
+		if (knockback) {
+			Vector3 dir = damagerPos - transform.position;
+			dir.Normalize ();
+			rb.velocity = Vector3.zero;
+			rb.AddForce(-dir*2, ForceMode.Impulse);
+		}
+		if (health <= 0) {
+			Die ();
+		}
+	}
+
+	public void Die(){
+		Destroy (gameObject);
+	}
+
 	void MoveTowardsTarget(){
-		float step = maxSpeed * Time.deltaTime;
+		float step = maxSpeed/(health/maxHealth) * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
 		if (Random.Range (0,50) == 0) {
