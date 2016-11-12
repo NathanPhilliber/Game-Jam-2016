@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void Damage(float damage){
-		print (health);
+		
 		health -= Mathf.Abs(damage);
 		if (health <= 0) {
 			Die ();
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Die(){
 		print("DEAD!!!");
-		transform.Translate (new Vector3(0, 0, 100f));
+		transform.Translate (new Vector3(0, 0, -100f));
 	}
 
 	void FixedUpdate()
