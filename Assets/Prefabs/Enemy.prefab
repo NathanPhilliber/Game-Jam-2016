@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000013241500350}
   - 65: {fileID: 65000011660657390}
   - 114: {fileID: 114000012940450170}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - 23: {fileID: 23000014172025922}
   - 114: {fileID: 114000012202979350}
   - 54: {fileID: 54000013207885430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -57,7 +57,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010443679000}
   - 212: {fileID: 212000013530976132}
-  m_Layer: 0
+  - 95: {fileID: 95000013894656348}
+  m_Layer: 10
   m_Name: Reaper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,8 +74,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011021153960}
   - 212: {fileID: 212000011228362270}
-  - 111: {fileID: 111000010038838386}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Reaper_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011939859256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.3339467, y: 11.681463, z: -1.0873804}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -197,8 +197,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.54, z: 1}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!65 &65000011660657390
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -211,20 +211,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.05, z: 1}
   m_Center: {x: 0, y: -0.525, z: 0}
---- !u!111 &111000010038838386
-Animation:
+--- !u!95 &95000013894656348
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013967145910}
+  m_GameObject: {fileID: 1000013123011606}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e6b8bd1b0e61e3498ea04a3206189d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000012202979350
 MonoBehaviour:
   m_ObjectHideFlags: 1

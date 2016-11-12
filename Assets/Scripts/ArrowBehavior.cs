@@ -25,6 +25,7 @@ public class ArrowBehavior : MonoBehaviour {
 			Destroy (gameObject);
 		} else if (other.CompareTag ("Enemy")) {
 			other.GetComponent<EnemyBehavior> ().Damage (60f, false, Vector3.zero);
+            Destroy(gameObject, .01f);
 		}
 	}
 }

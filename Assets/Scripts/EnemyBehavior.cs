@@ -21,6 +21,9 @@ public class EnemyBehavior : MonoBehaviour {
 	private Rigidbody rb;
 	private PlayerController player;
 
+    private Animator anim;
+    private bool dead = false;
+
 	public void SetTarget(GameObject tar){
 		
 		target = tar;
@@ -36,7 +39,8 @@ public class EnemyBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        anim = GetComponentInChildren<Animator>();
+
 		rb = GetComponent<Rigidbody> ();
 		health = maxHealth;
 		EnemySpawner.spawns++;
@@ -55,10 +59,12 @@ public class EnemyBehavior : MonoBehaviour {
 
 	void FixedUpdate(){
 		if (Vector3.Distance(target.transform.position, transform.position) > inRange) {
-			MoveTowardsTarget ();
-		} else {
+            if (!dead)
+            {
+                MoveTowardsTarget();
+            }
+		} else if(!dead) {
 			player.Damage (10);
-
 		}
 	}
 
@@ -70,16 +76,19 @@ public class EnemyBehavior : MonoBehaviour {
 			Vector3 dir = damagerPos - transform.position;
 			dir.Normalize ();
 			rb.velocity = Vector3.zero;
-			rb.AddForce(-dir*2, ForceMode.Impulse);
+			//rb.AddForce(-dir*2, ForceMode.Impulse);
 		}
 		if (health <= 0) {
-			Die ();
+            Die ();
 		}
 	}
 
 	public void Die(){
+        collider.enabled = false;
+        dead = true;
+        anim.SetTrigger("death");
 		EnemySpawner.spawns--;
-		Destroy (gameObject);
+		Destroy (gameObject, 0.5f);
 	}
 
 	void MoveTowardsTarget(){
@@ -112,8 +121,7 @@ public class EnemyBehavior : MonoBehaviour {
 		if (transform.position.x - target.transform.position.x < 0 && !facingLeft) {
 			sprite.flipX = true;
 			facingLeft = true;
-		}
-			
+		}	
 
 	}
 }

@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 			alivePlayers = new List<GameObject> ();
 		}
 		alivePlayers.Add (gameObject);
-		//Physics.IgnoreLayerCollision (8,9);
+		Physics.IgnoreLayerCollision (9,10);
 	}
 
 
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		anim.SetFloat("speed", Mathf.Abs(h));
-
+        
 		if (h * rb.velocity.x < maxSpeed)
 			rb.AddForce(Vector2.right * h * moveForce);
 
