@@ -92,6 +92,8 @@ public class PlayerController : MonoBehaviour {
 		if (h * rb.velocity.x < maxSpeed)
 			rb.AddForce(Vector2.right * h * moveForce);
 
+
+
 		if (Mathf.Abs (rb.velocity.x) > maxSpeed)
 			rb.velocity = new Vector2(Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
 
