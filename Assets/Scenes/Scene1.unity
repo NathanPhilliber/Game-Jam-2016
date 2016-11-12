@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3735644, g: 0.38112032, b: 0.35887682, a: 1}
+  m_IndirectSpecularColor: {r: 0.37356392, g: 0.38112, b: 0.3588766, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   arrow: {fileID: 1000012535698852, guid: 1cc671e0d08e84dcf8dfc03dd9b62d2f, type: 2}
   isRight: 0
   player: {fileID: 183943197}
-  maxChargeTime: 20
+  maxChargeTime: 40
 --- !u!1 &301065148
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +724,7 @@ GameObject:
   - 4: {fileID: 358334223}
   - 23: {fileID: 358334225}
   - 114: {fileID: 358334224}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Sword Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1156,6 +1156,7 @@ Transform:
   - {fileID: 1812619958}
   - {fileID: 583828838}
   - {fileID: 832344493}
+  - {fileID: 1689424546}
   m_Father: {fileID: 301065149}
   m_RootOrder: 2
 --- !u!65 &609945118
@@ -1770,7 +1771,7 @@ GameObject:
   - 4: {fileID: 944371006}
   - 23: {fileID: 944371003}
   - 114: {fileID: 944371007}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Sword Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1894,7 +1895,7 @@ GameObject:
   - 65: {fileID: 1070238975}
   - 23: {fileID: 1070238974}
   - 114: {fileID: 1070238977}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CubeHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2262,7 +2263,7 @@ GameObject:
   - 65: {fileID: 1269696261}
   - 23: {fileID: 1269696260}
   - 114: {fileID: 1269696263}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CubeHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2431,7 +2432,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1328973885}
   - 212: {fileID: 1328973884}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3147,7 +3148,50 @@ MonoBehaviour:
   arrow: {fileID: 1000012535698852, guid: 80057652693134433b13ecf30c91b33b, type: 2}
   isRight: 1
   player: {fileID: 183943197}
-  maxChargeTime: 20
+  maxChargeTime: 40
+--- !u!1 &1689424545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1689424546}
+  - 114: {fileID: 1689424547}
+  m_Layer: 0
+  m_Name: Flamethrower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1689424546
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689424545}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.49, z: 0}
+  m_LocalScale: {x: 2.857143, y: 2.857143, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 609945117}
+  m_RootOrder: 4
+--- !u!114 &1689424547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689424545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6231d5dd548994617a2a41c46506cc78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flame: {fileID: 1000013411084444, guid: 878d4d1493f914d62912b55f00770ee1, type: 2}
+  playerRb: {fileID: 609945119}
+  player: {fileID: 609945120}
 --- !u!1 &1693183137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3359,7 +3403,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1858979228}
   - 212: {fileID: 1858979229}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
