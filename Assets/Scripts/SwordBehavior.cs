@@ -14,10 +14,17 @@ public class SwordBehavior : MonoBehaviour {
 	private float rot = 0;
 	public bool isRight;
 
+	public Collider collider;
+
+	public SpriteRenderer sprite;
+
 	// Use this for initialization
 	void Start () {
 		startRotation = transform.rotation;
 		startPosition = transform.localPosition;
+		sprite.enabled = false;
+
+		collider.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -27,6 +34,8 @@ public class SwordBehavior : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.RightArrow) && player.dimension == WorldControlManager.enabledWorld && !busy) {
 				isSwinging = true;
 				busy = true;
+				sprite.enabled = true;
+				collider.enabled = true;
 			}
 
 			if (isSwinging) {
@@ -45,6 +54,8 @@ public class SwordBehavior : MonoBehaviour {
 				if (Mathf.Abs (rot) > 200) {
 					isSwinging = false;
 					busy = false;
+					sprite.enabled = false;
+					collider.enabled = false;
 					rot = 0;
 					transform.rotation = startRotation;
 					transform.localPosition = startPosition;
@@ -54,6 +65,8 @@ public class SwordBehavior : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.LeftArrow) && player.dimension == WorldControlManager.enabledWorld && !busy) {
 				isSwinging = true;
 				busy = true;
+				sprite.enabled = true;
+				collider.enabled = true;
 			}
 
 			if (isSwinging) {
@@ -72,6 +85,8 @@ public class SwordBehavior : MonoBehaviour {
 				if (Mathf.Abs (rot) > 200) {
 					isSwinging = false;
 					busy = false;
+					sprite.enabled = false;
+					collider.enabled = false;
 					rot = 0;
 					transform.rotation = startRotation;
 					transform.localPosition = startPosition;

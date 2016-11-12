@@ -19,7 +19,7 @@ public class SwordCollision : MonoBehaviour {
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyBehavior>().Damage(20f, true, transform.position);
+            other.GetComponent<EnemyBehavior>().Damage(60f, true, transform.position);
             camera.Shake(new Vector3(8, 8, 0));
         }
     }
