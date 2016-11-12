@@ -5,6 +5,7 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public GameObject target;
 	public PlayerGroundCollider groundCollider;
+	private Collider collider;
 	public float moveForce = 150f;
 	public float maxSpeed = 2.5f;
 	public float jumpForce = 200f;
@@ -15,16 +16,36 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public SpriteRenderer sprite;
 	private bool facingLeft;
+	private bool ghosting = false;
 
 	private Rigidbody rb;
 	private PlayerController player;
 
-	// Use this for initialization
-	void Start () {
-		rb = GetComponent<Rigidbody> ();
+	public void SetTarget(GameObject tar){
+		
+		target = tar;
 		player = target.GetComponent<PlayerController> ();
 		facingLeft = transform.position.x > target.transform.position.x;
+		if (rb != null) {
+			rb.velocity = Vector3.zero;
+			rb.ResetInertiaTensor ();
+		}
+
+
+	}
+
+	// Use this for initialization
+	void Start () {
+		
+		rb = GetComponent<Rigidbody> ();
 		health = maxHealth;
+		EnemySpawner.spawns++;
+		if (target != null) {
+			player = target.GetComponent<PlayerController> ();
+			facingLeft = transform.position.x > target.transform.position.x;
+		}
+		collider = GetComponent<Collider> ();
+
 	}
 	
 	// Update is called once per frame
@@ -41,6 +62,8 @@ public class EnemyBehavior : MonoBehaviour {
 		}
 	}
 
+
+
 	public void Damage(float damage, bool knockback, Vector3 damagerPos){
 		health -= damage;
 		if (knockback) {
@@ -55,10 +78,25 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	public void Die(){
+		EnemySpawner.spawns--;
 		Destroy (gameObject);
 	}
 
 	void MoveTowardsTarget(){
+
+		if (Mathf.Abs (transform.position.y) > 500) {
+			print ("I got lost... I'll just kill myself");
+			Die ();
+		}
+
+		if (Mathf.Abs (transform.position.y - target.transform.position.y) > 5 && !ghosting) {
+			collider.enabled = false;
+			ghosting = true;
+		} else if(Mathf.Abs (transform.position.y - target.transform.position.y) < 5 && ghosting){
+			collider.enabled = true;
+			ghosting = false;
+		}
+
 		float step = maxSpeed/(health/maxHealth) * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
@@ -75,19 +113,7 @@ public class EnemyBehavior : MonoBehaviour {
 			sprite.flipX = true;
 			facingLeft = true;
 		}
-
-		/*
-		float xDir = Mathf.Sign (target.transform.position.x-transform.position.x);
-		float yDir = Mathf.Sign (target.transform.position.y-transform.position.y);
-
-		if (xDir * rb.velocity.x < maxSpeed) {
-			rb.AddForce (Vector2.right * xDir * moveForce);
-		}
-
-		if (Mathf.Abs (rb.velocity.x) > maxSpeed) {
-			rb.velocity = new Vector2 (Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
-		}
-		*/
+			
 
 	}
 }

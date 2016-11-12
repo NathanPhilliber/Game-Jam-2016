@@ -18,9 +18,9 @@ public class CloudGenerator : MonoBehaviour {
     {
 		for (int i = 0; i < cloud.GetLength(0); i++)
         {
-            for (int j = 0; j < 200; j++)
+            for (int j = 0; j < 25; j++)
             {
-                Instantiate(cloud[i], new Vector3(Random.Range(-50f, 500f), (i - 1)*6 + 2.2f + Random.Range(-0.92f, 0.82f), 0.2f), Quaternion.identity);
+                Instantiate(cloud[i], new Vector3(Random.Range(-50f, 100f), (i - 1)*6 + 2.2f + Random.Range(-0.92f, 0.82f), 0.2f), Quaternion.identity);
             }
         }
     }

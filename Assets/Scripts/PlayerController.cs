@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,17 +11,22 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 200f;
 	public Transform groundCheck;
 	public PlayerGroundCollider groundCollider;
+	private static List<GameObject> alivePlayers;
+	public Camera2DFollow camera;
 
 	public int dimension;
 	public float maxHealth = 100f;
 
     Animator anim;
 
+	public SpriteRenderer sprite;
+	//[HideInInspector] public bool facingLeft = true;
+
 
 	//private bool grounded = false;
 	//private Animator anim;
 	private Rigidbody rb;
-
+	private bool dead = false;
 	private float health;
 
 
@@ -34,12 +40,26 @@ public class PlayerController : MonoBehaviour {
 
 	void Start(){
 		health = maxHealth;
-
+		if (alivePlayers == null) {
+			alivePlayers = new List<GameObject> ();
+		}
+		alivePlayers.Add (gameObject);
+		//Physics.IgnoreLayerCollision (8,9);
 	}
+
+
 
 	// Update is called once per frame
 	void Update () 
 	{
+		if (Input.GetKeyDown (KeyCode.P)) {
+			string outs = "Players Alive: ";
+			for (int i = 0; i < alivePlayers.Count; i++) {
+				outs += alivePlayers[i].ToString() + " ";
+			}
+			print (outs);
+		}
+
 		if (health < maxHealth) {
 			health++;
 		}
@@ -50,26 +70,14 @@ public class PlayerController : MonoBehaviour {
 				groundCollider.grounded = false;
 			}
 
-			if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-				JabLeft ();
-			}
 
-			if (Input.GetKeyDown (KeyCode.RightArrow)) {
-				JabRight ();
-			}
 		}
 	}
 
-	void JabLeft(){
 
-	}
-
-	void JabRight(){
-
-	}
 
 	public void Damage(float damage){
-		
+		camera.Shake (new Vector3(Random.Range(-5,5),5,0));
 		health -= Mathf.Abs(damage);
 		if (health <= 0) {
 			Die ();
@@ -79,6 +87,16 @@ public class PlayerController : MonoBehaviour {
 	void Die(){
 		print("DEAD!!!");
 		transform.Translate (new Vector3(0, 0, -100f));
+		dead = true;
+		alivePlayers.Remove (gameObject);
+		//Give the enemies new targets
+
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		for (int i = 0; i < enemies.Length; i++) {
+			if (enemies [i].GetComponent<EnemyBehavior> ().target == gameObject) {
+				enemies [i].GetComponent<EnemyBehavior> ().target = GetRandomAlivePlayer ();
+			}
+		}
 	}
 
 	void FixedUpdate()
@@ -118,10 +136,13 @@ public class PlayerController : MonoBehaviour {
 
 	void Flip()
 	{
-		//Problem with flipping box collider, fix later
-		//facingRight = !facingRight;
-		//Vector3 theScale = transform.localScale;
-		//theScale.x *= -1;
-		//transform.localScale = theScale;
+		sprite.flipX = !sprite.flipX;
+
+		facingRight = !facingRight;
+
+	}
+
+	public static GameObject GetRandomAlivePlayer(){
+		return alivePlayers[Random.Range(0,alivePlayers.Count)];
 	}
 }
