@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
 	public int dimension;
 	public float maxHealth = 100f;
 
+    Animator anim;
+
 
 	//private bool grounded = false;
 	//private Animator anim;
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
-		//anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
 		rb = GetComponent<Rigidbody>();
 
 	}
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-		//anim.SetFloat("Speed", Mathf.Abs(h));
+		anim.SetFloat("speed", Mathf.Abs(h));
 
 		if (h * rb.velocity.x < maxSpeed)
 			rb.AddForce(Vector2.right * h * moveForce);
@@ -114,9 +116,9 @@ public class PlayerController : MonoBehaviour {
 	void Flip()
 	{
 		//Problem with flipping box collider, fix later
-		/*facingRight = !facingRight;
+		facingRight = !facingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
-		transform.localScale = theScale;*/
+		transform.localScale = theScale;
 	}
 }
