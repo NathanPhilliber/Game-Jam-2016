@@ -1057,6 +1057,50 @@ Transform:
   - {fileID: 1803586172}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1049736780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1049736782}
+  - 114: {fileID: 1049736781}
+  m_Layer: 0
+  m_Name: Cloud Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1049736781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049736780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5b9bd358f87b24a9aa122739e0c280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloud:
+  - {fileID: 1000011724203368, guid: 6b3649a1aa3f2d74eaf1e38f8d229e1c, type: 2}
+  - {fileID: 1000013579808296, guid: fffe83093eec25b48b44dda0e8c3e65a, type: 2}
+  - {fileID: 1000011110079342, guid: f417087aa1db20546ab71b0adac9f388, type: 2}
+--- !u!4 &1049736782
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049736780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.07, y: 0.52, z: 0.6561403}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &1177923476
 GameObject:
   m_ObjectHideFlags: 0
