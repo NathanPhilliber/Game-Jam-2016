@@ -299,9 +299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 150
+  moveForce: 225
   maxSpeed: 2.5
-  jumpForce: 200
+  jumpForce: 500
   groundCheck: {fileID: 2055649828}
   groundCollider: {fileID: 494607067}
   dimension: 0
@@ -735,6 +735,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.05, z: 1}
   m_Center: {x: 0, y: -0.525, z: 0}
+--- !u!1 &583828837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 583828838}
+  - 114: {fileID: 583828839}
+  m_Layer: 0
+  m_Name: FlameThrower Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &583828838
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583828837}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0.7142857, z: 0}
+  m_LocalScale: {x: 2.857143, y: 2.857143, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 609945117}
+  m_RootOrder: 2
+--- !u!114 &583828839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583828837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a103eb8bb26d46b2aac9827c6fdc6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flame: {fileID: 1000011074263420, guid: c97336c2abad9471c9585e64695db36d, type: 2}
+  holder: {fileID: 609945116}
+  isRight: 0
+  maxFuel: 250
 --- !u!1 &590816324
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +891,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1693183138}
+  - {fileID: 1812619958}
+  - {fileID: 583828838}
   m_Father: {fileID: 301065149}
   m_RootOrder: 2
 --- !u!65 &609945118
@@ -889,9 +935,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 150
+  moveForce: 225
   maxSpeed: 2.5
-  jumpForce: 200
+  jumpForce: 500
   groundCheck: {fileID: 2055649828}
   groundCollider: {fileID: 1693183139}
   dimension: 2
@@ -1257,9 +1303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 1
   jump: 0
-  moveForce: 150
+  moveForce: 225
   maxSpeed: 2.5
-  jumpForce: 250
+  jumpForce: 500
   groundCheck: {fileID: 2055649828}
   groundCollider: {fileID: 1957046264}
   dimension: 1
@@ -2045,6 +2091,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 906692942}
   m_RootOrder: 3
+--- !u!1 &1812619956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1812619958}
+  - 114: {fileID: 1812619957}
+  m_Layer: 0
+  m_Name: FlameThrower Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1812619957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812619956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a103eb8bb26d46b2aac9827c6fdc6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flame: {fileID: 1000011074263420, guid: c97336c2abad9471c9585e64695db36d, type: 2}
+  holder: {fileID: 609945116}
+  isRight: 1
+  maxFuel: 250
+--- !u!4 &1812619958
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812619956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.49999997, y: 0.7142857, z: 0}
+  m_LocalScale: {x: 2.857143, y: 2.857143, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 609945117}
+  m_RootOrder: 1
 --- !u!1 &1957046262
 GameObject:
   m_ObjectHideFlags: 0
