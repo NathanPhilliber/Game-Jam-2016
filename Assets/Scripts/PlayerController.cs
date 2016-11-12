@@ -116,9 +116,9 @@ public class PlayerController : MonoBehaviour {
 	void Flip()
 	{
 		//Problem with flipping box collider, fix later
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		//facingRight = !facingRight;
+		//Vector3 theScale = transform.localScale;
+		//theScale.x *= -1;
+		//transform.localScale = theScale;
 	}
 }

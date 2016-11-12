@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3735644, g: 0.38112032, b: 0.35887682, a: 1}
+  m_IndirectSpecularColor: {r: 0.37356392, g: 0.38112, b: 0.3588766, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   groundCheck: {fileID: 2055649828}
   groundCollider: {fileID: 494607067}
   dimension: 0
-  maxHealth: 0
+  maxHealth: 100
 --- !u!23 &183943198
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -775,10 +775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a103eb8bb26d46b2aac9827c6fdc6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flame: {fileID: 1000011074263420, guid: c97336c2abad9471c9585e64695db36d, type: 2}
-  holder: {fileID: 609945116}
-  isRight: 0
-  maxFuel: 250
 --- !u!1 &590816324
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,7 +937,7 @@ MonoBehaviour:
   groundCheck: {fileID: 2055649828}
   groundCollider: {fileID: 1693183139}
   dimension: 2
-  maxHealth: 0
+  maxHealth: 100
 --- !u!23 &609945121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2199,10 +2195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a103eb8bb26d46b2aac9827c6fdc6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flame: {fileID: 1000011074263420, guid: c97336c2abad9471c9585e64695db36d, type: 2}
-  holder: {fileID: 609945116}
-  isRight: 1
-  maxFuel: 250
 --- !u!4 &1812619958
 Transform:
   m_ObjectHideFlags: 0

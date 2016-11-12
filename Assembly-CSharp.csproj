@@ -48,7 +48,6 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CloudGenerator.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
-     <Compile Include="Assets\Scripts\FlameThrowerBehavior.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerGroundCollider.cs" />
      <Compile Include="Assets\Scripts\WorldControlManager.cs" />
