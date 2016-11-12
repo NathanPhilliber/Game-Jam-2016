@@ -9,7 +9,10 @@ public class EnemyBehavior : MonoBehaviour {
 	public float maxSpeed = 2.5f;
 	public float jumpForce = 200f;
 
-	public float inRange = 1f;
+	public float inRange = .4f;
+
+	public SpriteRenderer sprite;
+	private bool facingLeft;
 
 	private Rigidbody rb;
 	private PlayerController player;
@@ -18,6 +21,7 @@ public class EnemyBehavior : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		player = target.GetComponent<PlayerController> ();
+		facingLeft = transform.position.x > target.transform.position.x;
 	}
 	
 	// Update is called once per frame
@@ -29,7 +33,7 @@ public class EnemyBehavior : MonoBehaviour {
 		if (Vector3.Distance(target.transform.position, transform.position) > inRange) {
 			MoveTowardsTarget ();
 		} else {
-			player.Damage (5);
+			player.Damage (10);
 
 		}
 	}
@@ -40,6 +44,16 @@ public class EnemyBehavior : MonoBehaviour {
 
 		if (Random.Range (0,50) == 0) {
 			rb.AddForce (new Vector3(0,Random.Range(0,50)-35,0));
+		}
+
+		if (transform.position.x - target.transform.position.x > 0 && facingLeft) {
+			sprite.flipX = false;
+			facingLeft = false;
+		}
+
+		if (transform.position.x - target.transform.position.x < 0 && !facingLeft) {
+			sprite.flipX = true;
+			facingLeft = true;
 		}
 
 		/*
