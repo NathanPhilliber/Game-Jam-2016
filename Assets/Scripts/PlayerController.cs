@@ -47,7 +47,23 @@ public class PlayerController : MonoBehaviour {
 				jump = true;
 				groundCollider.grounded = false;
 			}
+
+			if (Input.GetKeyDown (KeyCode.LeftArrow)) {
+				JabLeft ();
+			}
+
+			if (Input.GetKeyDown (KeyCode.RightArrow)) {
+				JabRight ();
+			}
 		}
+	}
+
+	void JabLeft(){
+
+	}
+
+	void JabRight(){
+
 	}
 
 	public void Damage(float damage){
