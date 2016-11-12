@@ -63,17 +63,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Game-Jam-2016.CSharp.Plugins.csproj">
-      <Project>{D3F6316E-1C15-41B0-64CD-3FD92AA6EBB4}</Project>
-      <Name>Game-Jam-2016.CSharp.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Assets\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CloudGenerator.cs" />
     <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
+    <Compile Include="Assets\Scripts\PlayerAntiStuck.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerGroundCollider.cs" />
+    <Compile Include="Assets\Scripts\SwordBehavior.cs" />
+    <Compile Include="Assets\Scripts\SwordCollision.cs" />
     <Compile Include="Assets\Scripts\WorldControlManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

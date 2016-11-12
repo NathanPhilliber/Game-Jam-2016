@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (jump)
 		{
-			//anim.SetTrigger("Jump");
+			anim.SetTrigger("jump");
 			rb.AddForce(new Vector2(0f, jumpForce));
 			jump = false;
 		}
@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour {
 	void Flip()
 	{
 		sprite.flipX = !sprite.flipX;
-
+   
 		facingRight = !facingRight;
 
 	}
