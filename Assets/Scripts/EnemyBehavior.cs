@@ -22,7 +22,7 @@ public class EnemyBehavior : MonoBehaviour {
 	private PlayerController player;
 
     private Animator anim;
-    private bool dead = false;
+    public bool dead = false;
 
 	public AudioClip deathSound;
 	private AudioSource source;
@@ -72,6 +72,10 @@ public class EnemyBehavior : MonoBehaviour {
 			} else if (!dead) {
 				player.Damage (10);
 			}
+            if (dead)
+            {
+                Destroy(gameObject, 0.5f);
+            }
 		}
 	}
 
@@ -97,7 +101,7 @@ public class EnemyBehavior : MonoBehaviour {
         anim.SetTrigger("death");
 		EnemySpawner.spawns--;
 		player.IKilledSomething ();
-		Destroy (gameObject, 0.5f);
+		//Destroy (gameObject, 0.54f);
 	}
 
 	void MoveTowardsTarget(){
@@ -115,7 +119,7 @@ public class EnemyBehavior : MonoBehaviour {
 			ghosting = false;
 		}
 
-		float step = maxSpeed/(health/maxHealth) * Time.deltaTime;
+		float step = maxSpeed * Time.deltaTime;
 		transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
 
 		if (Random.Range (0,50) == 0) {

@@ -9,9 +9,9 @@ public class ArrowBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (isRight) {
-			GetComponent<Rigidbody> ().AddForce (Vector3.right * arrowPower + Vector3.up * arrowPower / 5, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (Vector3.right * arrowPower + Vector3.up * arrowPower / 10, ForceMode.Impulse);
 		} else {
-			GetComponent<Rigidbody> ().AddForce (Vector3.left * arrowPower + Vector3.up * arrowPower / 5, ForceMode.Impulse);
+			GetComponent<Rigidbody> ().AddForce (Vector3.left * arrowPower + Vector3.up * arrowPower / 10, ForceMode.Impulse);
 		}
 	}
 	

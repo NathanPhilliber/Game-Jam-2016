@@ -24,6 +24,7 @@ public class BowBehavior : MonoBehaviour
 		if (!isRight) {
 			sprite.enabled = false;
 		}
+        charge = maxChargeTime - 3;
     }
 
     // Update is called once per frame
@@ -47,7 +48,7 @@ public class BowBehavior : MonoBehaviour
 			if (isRight && Input.GetKey(KeyCode.RightArrow) && player.facingRight)
             {
 				
-                charge++;
+                //charge++;
                 //if (charge >= maxChargeTime - 20)
                 //{
                     anim.SetBool("isFiring", true);
@@ -64,7 +65,7 @@ public class BowBehavior : MonoBehaviour
 			if (!isRight && Input.GetKey(KeyCode.LeftArrow) && !player.facingRight)
             {
 				
-                charge++;
+                //charge++;
 
                 //if (charge >= maxChargeTime - 20)
                 //{
@@ -80,6 +81,9 @@ public class BowBehavior : MonoBehaviour
 
                 }
             }
+
+            if (charge <= maxChargeTime)
+                charge++;
 
             if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             {
