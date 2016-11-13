@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 		Physics.IgnoreLayerCollision (9,10);
 
 		score = FindObjectOfType<ScoreManager> ();
+		score.Reset ();
 	}
 
 
@@ -112,7 +114,17 @@ public class PlayerController : MonoBehaviour {
 
 			camera.target = stayHere.transform;
 
-
+			switch (dimension) {
+			case 0:
+				WorldControlManager.heavenEnabled = false;
+				break;
+			case 1:
+				WorldControlManager.earthEnabled = false;
+				break;
+			case 2:
+				WorldControlManager.hellEnabled = false;
+				break;
+			}
 
 			rb.isKinematic = true;
 			rb.velocity = Vector3.zero;
@@ -133,6 +145,11 @@ public class PlayerController : MonoBehaviour {
 					enemies [i].GetComponent<EnemyBehavior> ().target = stayHere;
 				}
 			}
+
+			if (alivePlayers.Count == 0) {
+				SceneManager.LoadScene (2);
+			}
+
 			Destroy (gameObject);
 		}
 	}
@@ -177,7 +194,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void IKilledSomething(){
-		score.AddScore (10);
+		score.AddScore (10*alivePlayers.Count);
 	}
 
 

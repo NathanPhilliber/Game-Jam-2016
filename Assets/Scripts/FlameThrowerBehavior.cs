@@ -29,30 +29,41 @@ public class FlameThrowerBehavior : MonoBehaviour {
 			if (fuel < maxFuel) {
 				fuel++;
 			}
-			if (fuel < maxFuel / 2) {
-				fuel++;
-			}
+		
 			if (soundCooldown <= 50) {
 				soundCooldown++;
 			}
 			if (Input.GetKey (KeyCode.RightArrow) && fuel > 0) {
-				fuel -=2;
-				GameObject spawned = (GameObject)Instantiate (flame, new Vector3(transform.position.x + .2f, 
-                                                      transform.position.y - .03f, transform.position.z), Quaternion.identity);
-				spawned.GetComponent<FlameBehavior> ().Fire (playerRb, true, fuel, maxFuel);
-				if (Input.GetKeyDown (KeyCode.RightArrow) && soundCooldown > 50) {
-					source.PlayOneShot (throwerSound);
-					soundCooldown = 0;
+
+				print ("Fuel" + fuel + " " + maxFuel);
+
+				if (fuel < maxFuel / 4) {
+
+				} else {
+					fuel -= 2;
+					GameObject spawned = (GameObject)Instantiate (flame, new Vector3 (transform.position.x + .2f, 
+						                    transform.position.y - .03f, transform.position.z), Quaternion.identity);
+					spawned.GetComponent<FlameBehavior> ().Fire (playerRb, true, fuel, maxFuel);
+
+					if (Input.GetKeyDown (KeyCode.RightArrow) && soundCooldown > 50) {
+						source.PlayOneShot (throwerSound);
+						soundCooldown = 0;
+					}
 				}
+
 			}
 			if (Input.GetKey (KeyCode.LeftArrow) && fuel > 0) {
 				fuel -=2;
-                GameObject spawned = (GameObject)Instantiate(flame, new Vector3(transform.position.x - .2f,
-                                                      transform.position.y - .03f, transform.position.z), Quaternion.identity);
-                spawned.GetComponent<FlameBehavior> ().Fire (playerRb, false, fuel, maxFuel);
-				if (Input.GetKeyDown (KeyCode.LeftArrow) && soundCooldown > 50) {
-					source.PlayOneShot (throwerSound);
-					soundCooldown = 0;
+				if (fuel < maxFuel / 4) {
+
+				} else {
+					GameObject spawned = (GameObject)Instantiate (flame, new Vector3 (transform.position.x - .2f,
+						                                transform.position.y - .03f, transform.position.z), Quaternion.identity);
+					spawned.GetComponent<FlameBehavior> ().Fire (playerRb, false, fuel, maxFuel);
+					if (Input.GetKeyDown (KeyCode.LeftArrow) && soundCooldown > 50) {
+						source.PlayOneShot (throwerSound);
+						soundCooldown = 0;
+					}
 				}
             }
 

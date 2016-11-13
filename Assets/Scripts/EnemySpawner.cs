@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour {
 				dir = -1;
 			}
 
-			spawnPos = new Vector3 (spawnPos.x + (float)dir * minSpawnRadius, spawnPos.y, spawnPos.z);
+			spawnPos = new Vector3 (spawnPos.x + (float)dir * minSpawnRadius, spawnPos.y+Random.Range(0,3f), spawnPos.z);
 
 			GameObject spawn = (GameObject)Instantiate (enemy1, spawnPos, Quaternion.identity);
 			spawn.GetComponent<EnemyBehavior> ().SetTarget (thisPlayer);

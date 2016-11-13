@@ -12,7 +12,13 @@ public class FlameBehavior : MonoBehaviour {
 	}
 
 	public void Fire(Rigidbody playerRb, bool isRight, int fuel, int maxFuel){
-		
+
+		if (fuel < maxFuel / 4) {
+			if (Random.Range (0, 2) == 0) {
+				Destroy (gameObject);
+			}
+		}
+
 		Vector3 yV = Vector3.zero;
 		if (Random.Range (0, 2) == 0) {
 			yV = Vector3.up;
@@ -28,7 +34,7 @@ public class FlameBehavior : MonoBehaviour {
 
 		GetComponent<Rigidbody> ().velocity = playerRb.velocity + move*((float)fuel/(float)maxFuel);
 
-		Destroy (gameObject, Random.Range(.6f*((float)fuel/(float)maxFuel),1.0f*((float)fuel/(float)maxFuel)));
+		Destroy (gameObject, Random.Range(.5f*((float)fuel/(float)maxFuel),1.0f*((float)fuel/(float)maxFuel)));
 	}
 
 	void OnTriggerEnter(Collider other){

@@ -46,21 +46,23 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ArrowBehavior.cs" />
+     <Compile Include="Assets\Scripts\BackgroundGenerator.cs" />
      <Compile Include="Assets\Scripts\BowBehavior.cs" />
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraBorder.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CloudGenerator.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\FlameBehavior.cs" />
      <Compile Include="Assets\Scripts\FlameThrowerBehavior.cs" />
+     <Compile Include="Assets\Scripts\GameOverBehavior.cs" />
      <Compile Include="Assets\Scripts\PlayerAntiStuck.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerGroundCollider.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SwordBehavior.cs" />
      <Compile Include="Assets\Scripts\SwordCollision.cs" />
+     <Compile Include="Assets\Scripts\TitleBehavior.cs" />
      <Compile Include="Assets\Scripts\WorldControlManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
