@@ -12,6 +12,7 @@ public class WorldControlManager : MonoBehaviour {
 	public static bool hellEnabled;
 
 	public AudioClip changeSound;
+	public AudioClip playerDeathSound;
 	private AudioSource source;
 
 	public static int enabledWorld = EARTH;
@@ -22,6 +23,10 @@ public class WorldControlManager : MonoBehaviour {
 		heavenEnabled = true;
 		hellEnabled = true;
 		earthEnabled = true;
+	}
+
+	public void PlayPlayerDeathSound(){
+		source.PlayOneShot (playerDeathSound);
 	}
 	
 	// Update is called once per frame
@@ -51,9 +56,11 @@ public class WorldControlManager : MonoBehaviour {
 			}
 			if ((Input.GetKeyDown (KeyCode.UpArrow) && !hellEnabled) || (Input.GetKeyDown(KeyCode.DownArrow) && earthEnabled)) {
 				enabledWorld = EARTH;
+				source.PlayOneShot (changeSound);
 			}
 			if ((Input.GetKeyDown (KeyCode.UpArrow) && hellEnabled) || (Input.GetKeyDown(KeyCode.DownArrow) && !earthEnabled)) {
 				enabledWorld = HELL;
+				source.PlayOneShot (changeSound);
 			}
 		} else if (enabledWorld == EARTH){
 			if (!heavenEnabled && !hellEnabled) {
@@ -61,9 +68,11 @@ public class WorldControlManager : MonoBehaviour {
 			}
 			if ((Input.GetKeyDown (KeyCode.UpArrow) && heavenEnabled) || (Input.GetKeyDown(KeyCode.DownArrow) && !hellEnabled)) {
 				enabledWorld = HEAVEN;
+				source.PlayOneShot (changeSound);
 			}
 			if ((Input.GetKeyDown (KeyCode.UpArrow) && !heavenEnabled) || (Input.GetKeyDown(KeyCode.DownArrow) && hellEnabled)) {
 				enabledWorld = HELL;
+				source.PlayOneShot (changeSound);
 			}
 		} else if (enabledWorld == HELL){
 			if (!earthEnabled && !heavenEnabled) {
@@ -71,9 +80,11 @@ public class WorldControlManager : MonoBehaviour {
 			}
 			if ((Input.GetKeyDown (KeyCode.UpArrow) && earthEnabled) || (Input.GetKeyDown(KeyCode.DownArrow) && !heavenEnabled)) {
 				enabledWorld = EARTH;
+				source.PlayOneShot (changeSound);
 			}
 			if ((Input.GetKeyDown (KeyCode.UpArrow) && !earthEnabled) || (Input.GetKeyDown(KeyCode.DownArrow) && heavenEnabled)) {
 				enabledWorld = HEAVEN;
+				source.PlayOneShot (changeSound);
 			}
 		}
 	}

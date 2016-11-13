@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\FlameBehavior.cs" />
      <Compile Include="Assets\Scripts\FlameThrowerBehavior.cs" />
      <Compile Include="Assets\Scripts\GameOverBehavior.cs" />
+     <Compile Include="Assets\Scripts\PlatformBehavior.cs" />
      <Compile Include="Assets\Scripts\PlayerAntiStuck.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerGroundCollider.cs" />

@@ -101,7 +101,8 @@ public class PlayerController : MonoBehaviour {
 	void Die(){
 		if (!dead) {
 			//print("DEAD!!!");
-			source.PlayOneShot (deathSound);
+			//source.PlayOneShot (deathSound);
+			GameObject.FindGameObjectWithTag("WorldControl").GetComponent<WorldControlManager>().PlayPlayerDeathSound();
 
 			dead = true;
 			alivePlayers.Remove (gameObject);
