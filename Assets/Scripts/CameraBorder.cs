@@ -47,7 +47,7 @@ public class CameraBorder : MonoBehaviour {
 
         GUI.DrawTexture(new Rect(0, Screen.height / 3 - barWidth,  Screen.width, barWidth), black);
 
-        GUI.DrawTexture(new Rect(0, Screen.height / 3 * 2 + 1,     Screen.width, barWidth), black);
+        GUI.DrawTexture(new Rect(0, Screen.height / 3 * 2,     Screen.width, barWidth), black);
 
         int world = WorldControlManager.enabledWorld;
 
