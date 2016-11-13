@@ -1,7 +1,9 @@
 # Purgatory
 
 A game created in under 48 hours for Cal Poly Game Development Game-Jam (Nov 11-13 2016). The theme selected for the game-jam was "Multitasking"
+
 Created by Nathan Philliber and Trace Rainbolt.
+
 Music by Grayson Goodman
 
 
