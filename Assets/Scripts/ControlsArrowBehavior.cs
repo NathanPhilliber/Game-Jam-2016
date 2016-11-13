@@ -34,13 +34,18 @@ public class ControlsArrowBehavior : MonoBehaviour {
 		transform.Translate (new Vector3(.05f*Time.deltaTime*(counter-10),0,0));
 
 		if (boss) {
-			if (done >= 3 || Input.GetKeyDown (KeyCode.Return)) {
-				delay++;
-				print ("BEGIN GAME");
-				if (delay > 10) {
-					SceneManager.LoadScene (1);
-				}
-			}
+			if (Input.GetKeyDown (KeyCode.Return)) {
+                SceneManager.LoadScene(1);
+            }
+            if (done >= 3)
+            {
+                delay++;
+                print("BEGIN GAME");
+                if (delay > 10)
+                {
+                    SceneManager.LoadScene(1);
+                }
+            }
 			if (Input.GetKeyDown (KeyCode.Escape)) {
 				Application.Quit ();
 			}
