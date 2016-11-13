@@ -28,6 +28,9 @@ public class FlameThrowerBehavior : MonoBehaviour {
 			if (fuel < maxFuel) {
 				fuel++;
 			}
+			if (fuel < maxFuel / 2) {
+				fuel++;
+			}
 			if (soundCooldown <= 50) {
 				soundCooldown++;
 			}

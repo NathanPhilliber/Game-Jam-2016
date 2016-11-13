@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip deathSound;
 
 
+
+
 	// Use this for initialization
 	void Awake () 
 	{
@@ -95,52 +97,78 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Die(){
-		print("DEAD!!!");
-		source.PlayOneShot (deathSound);
-		transform.Translate (new Vector3(0, 0, -100f));
-		dead = true;
-		alivePlayers.Remove (gameObject);
-		//Give the enemies new targets
+		if (!dead) {
+			//print("DEAD!!!");
+			source.PlayOneShot (deathSound);
 
-		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
-		for (int i = 0; i < enemies.Length; i++) {
-			if (enemies [i].GetComponent<EnemyBehavior> ().target == gameObject) {
-				enemies [i].GetComponent<EnemyBehavior> ().target = GetRandomAlivePlayer ();
+			dead = true;
+			alivePlayers.Remove (gameObject);
+			//Give the enemies new targets
+
+
+
+			GameObject stayHere = new GameObject ("Camera Stay Here");
+			stayHere.transform.position = transform.position;
+
+			camera.target = stayHere.transform;
+
+
+
+			rb.isKinematic = true;
+			rb.velocity = Vector3.zero;
+			transform.position = new Vector3 (-5000, 0, 0);
+
+			if (PlayerController.alivePlayers.Count > 0) {
+				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		
+				for (int i = 0; i < enemies.Length; i++) {
+					if (enemies [i].GetComponent<EnemyBehavior> ().target == gameObject) {
+						enemies [i].GetComponent<EnemyBehavior> ().target = GetRandomAlivePlayer ();
+					}
+				}
+			} else {
+				GameObject[] enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+
+				for (int i = 0; i < enemies.Length; i++) {
+					enemies [i].GetComponent<EnemyBehavior> ().target = stayHere;
+				}
 			}
+			Destroy (gameObject);
 		}
 	}
 
 	void FixedUpdate()
 	{
-		float h = 0f;
-		if (WorldControlManager.enabledWorld == dimension) {
-			h = Input.GetAxis ("Horizontal");
-		}
+		if (!dead) {
+			float h = 0f;
+			if (WorldControlManager.enabledWorld == dimension) {
+				h = Input.GetAxis ("Horizontal");
+			}
 
 
-		anim.SetFloat("speed", Mathf.Abs(h));
+			anim.SetFloat ("speed", Mathf.Abs (h));
         
-		if (h * rb.velocity.x < maxSpeed)
-			rb.AddForce(Vector2.right * h * moveForce);
+			if (h * rb.velocity.x < maxSpeed)
+				rb.AddForce (Vector2.right * h * moveForce);
 
 
-		if (Mathf.Abs (rb.velocity.x) > maxSpeed)
-			rb.velocity = new Vector2(Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
+			if (Mathf.Abs (rb.velocity.x) > maxSpeed)
+				rb.velocity = new Vector2 (Mathf.Sign (rb.velocity.x) * maxSpeed, rb.velocity.y);
 
-		if (Mathf.Abs(h) <= 0.1f) {
-			rb.velocity = new Vector3(0,rb.velocity.y,0);
-		}
+			if (Mathf.Abs (h) <= 0.1f) {
+				rb.velocity = new Vector3 (0, rb.velocity.y, 0);
+			}
 
-		if (h > 0 && !facingRight)
-			Flip ();
-		else if (h < 0 && facingRight)
-			Flip ();
+			if (h > 0 && !facingRight)
+				Flip ();
+			else if (h < 0 && facingRight)
+				Flip ();
 
-		if (jump)
-		{
-			anim.SetTrigger("jump");
-			rb.AddForce(new Vector2(0f, jumpForce));
-			jump = false;
+			if (jump) {
+				anim.SetTrigger ("jump");
+				rb.AddForce (new Vector2 (0f, jumpForce));
+				jump = false;
+			}
 		}
 	}
 

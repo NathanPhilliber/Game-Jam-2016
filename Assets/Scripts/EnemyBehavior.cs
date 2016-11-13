@@ -27,6 +27,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public AudioClip deathSound;
 	private AudioSource source;
 
+	public bool stopEverything = false;
+
 	public void SetTarget(GameObject tar){
 		
 		target = tar;
@@ -62,13 +64,14 @@ public class EnemyBehavior : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (Vector3.Distance(target.transform.position, transform.position) > inRange) {
-            if (!dead)
-            {
-                MoveTowardsTarget();
-            }
-		} else if(!dead) {
-			player.Damage (10);
+		if (!stopEverything) {
+			if (Vector3.Distance (target.transform.position, transform.position) > inRange) {
+				if (!dead) {
+					MoveTowardsTarget ();
+				}
+			} else if (!dead) {
+				player.Damage (10);
+			}
 		}
 	}
 

@@ -14,26 +14,44 @@ public class BowBehavior : MonoBehaviour
     private AudioSource source;
 
     private Animator anim;
+	public SpriteRenderer sprite;
 
     // Use this for initialization
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         source = GetComponent<AudioSource>();
+		if (!isRight) {
+			sprite.enabled = false;
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
+		if (player.facingRight && isRight && !sprite.enabled) {
+			sprite.enabled = true;
+		} else if (!player.facingRight && isRight && sprite.enabled) {
+			sprite.enabled = false;
+		}
+		if (!player.facingRight && !isRight && !sprite.enabled) {
+			sprite.enabled = true;
+		}
+		else if (player.facingRight && !isRight && sprite.enabled) {
+			sprite.enabled = false;
+		}
+
+
         if (player.dimension == WorldControlManager.enabledWorld)
         {
-            if (isRight && Input.GetKey(KeyCode.RightArrow))
+			if (isRight && Input.GetKey(KeyCode.RightArrow) && player.facingRight)
             {
+				
                 charge++;
-                if (charge >= maxChargeTime - 20)
-                {
+                //if (charge >= maxChargeTime - 20)
+                //{
                     anim.SetBool("isFiring", true);
-                }
+                //}
 
                 if (charge >= maxChargeTime)
                 {
@@ -43,14 +61,15 @@ public class BowBehavior : MonoBehaviour
                     anim.SetBool("isFiring", false);
                 }
             }
-            if (!isRight && Input.GetKey(KeyCode.LeftArrow))
+			if (!isRight && Input.GetKey(KeyCode.LeftArrow) && !player.facingRight)
             {
+				
                 charge++;
 
-                if (charge >= maxChargeTime - 20)
-                {
+                //if (charge >= maxChargeTime - 20)
+                //{
                     anim.SetBool("isFiring", true);
-                }
+                //}
 
                 if (charge >= maxChargeTime)
                 {
