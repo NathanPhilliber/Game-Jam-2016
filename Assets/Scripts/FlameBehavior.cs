@@ -31,6 +31,12 @@ public class FlameBehavior : MonoBehaviour {
 
 		Destroy (gameObject, Random.Range(.4f,.8f));
 	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.CompareTag ("Enemy")) {
+			other.GetComponent<EnemyBehavior> ().Damage (10, false, Vector3.zero);
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
