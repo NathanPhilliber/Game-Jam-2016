@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraBorder.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\ControlsArrowBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Scripts\EnemySpawner.cs" />
      <Compile Include="Assets\Scripts\FlameBehavior.cs" />

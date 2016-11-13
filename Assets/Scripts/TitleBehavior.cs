@@ -8,12 +8,12 @@ public class TitleBehavior : MonoBehaviour {
 	public Image title1;
 	public Image title2;
 	public Image title3;
-	public Image cont;
+	public Text cont;
 
 	public AudioClip backgroundMusic;
 	private AudioSource source;
 
-	private int counter = 0;
+	private int counter = 99;
 	// Use this for initialization
 	void Start () {
 		source = GetComponent<AudioSource> ();
@@ -51,7 +51,7 @@ public class TitleBehavior : MonoBehaviour {
 			//START
 			print("START GAME");
 			source.Pause ();
-			SceneManager.LoadScene (1);
+			SceneManager.LoadScene (3);
 			//START
 		}
 	}

@@ -15,7 +15,7 @@ public class WorldControlManager : MonoBehaviour {
 	public AudioClip playerDeathSound;
 	private AudioSource source;
 
-	public static int enabledWorld = EARTH;
+	public static int enabledWorld;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +23,8 @@ public class WorldControlManager : MonoBehaviour {
 		heavenEnabled = true;
 		hellEnabled = true;
 		earthEnabled = true;
+
+		enabledWorld = EARTH;
 	}
 
 	public void PlayPlayerDeathSound(){

@@ -21,5 +21,8 @@ public class PlayerAntiStuck : MonoBehaviour {
 			player.transform.Translate(Vector3.up*.1f);
 
 		}
+		if (other.CompareTag ("Enemy")) {
+			player.GetComponent<PlayerController> ().Damage (5f);
+		}
 	}
 }

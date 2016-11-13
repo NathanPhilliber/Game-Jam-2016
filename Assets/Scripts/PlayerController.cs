@@ -52,12 +52,20 @@ public class PlayerController : MonoBehaviour {
 		health = maxHealth;
 		if (alivePlayers == null) {
 			alivePlayers = new List<GameObject> ();
+		} 
+
+		if (alivePlayers.Count >= 3) {
+			alivePlayers = new List<GameObject> ();
 		}
+
 		alivePlayers.Add (gameObject);
 		Physics.IgnoreLayerCollision (9,10);
 
 		score = FindObjectOfType<ScoreManager> ();
-		score.Reset ();
+		if (score != null) {
+			
+			score.Reset ();
+		}
 	}
 
 
