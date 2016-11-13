@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour {
 
@@ -147,8 +147,8 @@ public class PlayerController : MonoBehaviour {
 			}
 
 			if (alivePlayers.Count == 0) {
-				SceneManager.LoadScene (2);
-			}
+                GameObject.FindGameObjectWithTag("WorldControl").GetComponent<CameraBorder>().fadeOut();
+            }
 
 			Destroy (gameObject);
 		}

@@ -26,7 +26,7 @@ public class WorldControlManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		/*
+        /*
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			if (enabledWorld == EARTH || enabledWorld == HELL) {
 				enabledWorld--;
@@ -40,6 +40,10 @@ public class WorldControlManager : MonoBehaviour {
 			}
 		}
 		*/
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
 		if (enabledWorld == HEAVEN) {
 			if (!earthEnabled && !hellEnabled) {

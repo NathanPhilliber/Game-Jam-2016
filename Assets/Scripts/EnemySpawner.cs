@@ -67,7 +67,7 @@ public class EnemySpawner : MonoBehaviour {
     
     void increaseSpawnChance()
     {
-        if (spawnChance > 50)
+        if (spawnChance > minimumSpawn)
         {
             spawnChance--;
         }

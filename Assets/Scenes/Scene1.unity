@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37356392, g: 0.38112, b: 0.3588766, a: 1}
+  m_IndirectSpecularColor: {r: 0.3735644, g: 0.38112032, b: 0.35887682, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -7715,7 +7715,7 @@ GameObject:
   - 114: {fileID: 1515921339}
   m_Layer: 0
   m_Name: World Control Switcher
-  m_TagString: Untagged
+  m_TagString: WorldControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7832,6 +7832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textureImage: {fileID: 2800000, guid: 9a33c7aa8bf6658479644d0b6a876332, type: 3}
   black: {fileID: 2800000, guid: 0a7e98b633969bc4cac0b0cbef3f201a, type: 3}
+  fadeTexture: {fileID: 2800000, guid: 0a7e98b633969bc4cac0b0cbef3f201a, type: 3}
 --- !u!4 &1542382306 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014180238994, guid: 6935cbff752c8a34cb3ff381e35947f5,

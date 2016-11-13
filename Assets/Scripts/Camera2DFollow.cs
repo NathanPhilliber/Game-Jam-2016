@@ -21,8 +21,8 @@ public class Camera2DFollow : MonoBehaviour
 
 	private float lastY = 0;
 
-	// Use this for initialization
-	private void Start ()
+    // Use this for initialization
+    private void Start ()
 	{
 		startY = transform.position.y;
 		m_LastTargetPosition = target.position;

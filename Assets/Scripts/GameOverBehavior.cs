@@ -9,9 +9,11 @@ public class GameOverBehavior : MonoBehaviour {
 	public AudioClip song;
 	private GameObject score;
 	public Text scoreText;
+    private int counter;
 
 	// Use this for initialization
 	void Start () {
+        counter = 0;
 		source = GetComponent<AudioSource> ();
 		source.PlayOneShot (song);
 		score = GameObject.FindGameObjectWithTag ("Score");
@@ -21,8 +23,15 @@ public class GameOverBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.anyKeyDown && Time.frameCount > 100) {
+        counter++;
+		if (Input.anyKeyDown && counter > 100) {
 			SceneManager.LoadScene (0);
 		}
-	}
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+    }
 }

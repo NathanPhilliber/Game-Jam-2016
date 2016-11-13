@@ -73,12 +73,15 @@
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\FlameBehavior.cs" />
     <Compile Include="Assets\Scripts\FlameThrowerBehavior.cs" />
+    <Compile Include="Assets\Scripts\GameOverBehavior.cs" />
+    <Compile Include="Assets\Scripts\PlatformBehavior.cs" />
     <Compile Include="Assets\Scripts\PlayerAntiStuck.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerGroundCollider.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\SwordBehavior.cs" />
     <Compile Include="Assets\Scripts\SwordCollision.cs" />
+    <Compile Include="Assets\Scripts\TitleBehavior.cs" />
     <Compile Include="Assets\Scripts\WorldControlManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

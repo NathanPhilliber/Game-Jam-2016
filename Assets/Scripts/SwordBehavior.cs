@@ -11,7 +11,7 @@ public class SwordBehavior : MonoBehaviour
     public PlayerController player;
 
     private bool isSwinging = false;
-    private static bool busy = false;
+    private static bool busy;
     private float rot = 0;
     public bool isRight;
 
@@ -29,6 +29,7 @@ public class SwordBehavior : MonoBehaviour
         startRotation = transform.rotation;
         startPosition = transform.localPosition;
         sprite.enabled = false;
+        busy = false;
 
         collider.enabled = false;
     }

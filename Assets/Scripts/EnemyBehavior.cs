@@ -70,7 +70,7 @@ public class EnemyBehavior : MonoBehaviour {
 					MoveTowardsTarget ();
 				}
 			} else if (!dead) {
-				player.Damage (10);
+				player.Damage (15);
 			}
             if (dead)
             {

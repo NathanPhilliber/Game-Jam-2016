@@ -42,8 +42,12 @@ public class TitleBehavior : MonoBehaviour {
 		}
 
 		cont.transform.Translate (new Vector3(0,Time.deltaTime*10f*Mathf.Sign((counter-500)%5),0));
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
-		if (Input.anyKeyDown) {
+        if (Input.anyKeyDown) {
 			//START
 			print("START GAME");
 			source.Pause ();
