@@ -19,9 +19,13 @@ public class SwordBehavior : MonoBehaviour
 
     public SpriteRenderer sprite;
 
+	private AudioSource source;
+	public AudioClip swingSound;
+
     // Use this for initialization
     void Start()
     {
+		source = GetComponent<AudioSource> ();
         startRotation = transform.rotation;
         startPosition = transform.localPosition;
         sprite.enabled = false;
@@ -41,6 +45,7 @@ public class SwordBehavior : MonoBehaviour
                 busy = true;
                 sprite.enabled = true;
                 collider.enabled = true;
+				source.PlayOneShot (swingSound);
             }
 
             if (isSwinging)
@@ -80,6 +85,7 @@ public class SwordBehavior : MonoBehaviour
                 busy = true;
                 sprite.enabled = true;
                 collider.enabled = true;
+				source.PlayOneShot (swingSound);
             }
 
             if (isSwinging)

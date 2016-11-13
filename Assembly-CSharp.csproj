@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\PlayerAntiStuck.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerGroundCollider.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SwordBehavior.cs" />
      <Compile Include="Assets\Scripts\SwordCollision.cs" />
      <Compile Include="Assets\Scripts\WorldControlManager.cs" />

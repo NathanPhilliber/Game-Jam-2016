@@ -24,6 +24,9 @@ public class EnemyBehavior : MonoBehaviour {
     private Animator anim;
     private bool dead = false;
 
+	public AudioClip deathSound;
+	private AudioSource source;
+
 	public void SetTarget(GameObject tar){
 		
 		target = tar;
@@ -39,6 +42,7 @@ public class EnemyBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		source = GetComponent<AudioSource> ();
         anim = GetComponentInChildren<Animator>();
 
 		rb = GetComponent<Rigidbody> ();
@@ -86,8 +90,10 @@ public class EnemyBehavior : MonoBehaviour {
 	public void Die(){
         collider.enabled = false;
         dead = true;
+		source.PlayOneShot (deathSound);
         anim.SetTrigger("death");
 		EnemySpawner.spawns--;
+		player.IKilledSomething ();
 		Destroy (gameObject, 0.5f);
 	}
 

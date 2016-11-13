@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public PlayerGroundCollider groundCollider;
 	private static List<GameObject> alivePlayers;
 	public Camera2DFollow camera;
+	private ScoreManager score;
 
 	public int dimension;
 	public float maxHealth = 100f;
@@ -29,6 +30,10 @@ public class PlayerController : MonoBehaviour {
 	private bool dead = false;
 	private float health;
 
+	private AudioSource source;
+	public AudioClip jumpSound;
+	public AudioClip deathSound;
+
 
 	// Use this for initialization
 	void Awake () 
@@ -39,12 +44,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Start(){
+		source = GetComponent<AudioSource>();
+
 		health = maxHealth;
 		if (alivePlayers == null) {
 			alivePlayers = new List<GameObject> ();
 		}
 		alivePlayers.Add (gameObject);
 		Physics.IgnoreLayerCollision (9,10);
+
+		score = FindObjectOfType<ScoreManager> ();
 	}
 
 
@@ -68,6 +77,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetButtonDown ("Jump") && groundCollider.grounded) {
 				jump = true;
 				groundCollider.grounded = false;
+				source.PlayOneShot(jumpSound,1f);
 			}
 
 
@@ -86,6 +96,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Die(){
 		print("DEAD!!!");
+		source.PlayOneShot (deathSound);
 		transform.Translate (new Vector3(0, 0, -100f));
 		dead = true;
 		alivePlayers.Remove (gameObject);
@@ -131,6 +142,10 @@ public class PlayerController : MonoBehaviour {
 			rb.AddForce(new Vector2(0f, jumpForce));
 			jump = false;
 		}
+	}
+
+	public void IKilledSomething(){
+		score.AddScore (10);
 	}
 
 

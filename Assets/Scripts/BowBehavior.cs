@@ -9,9 +9,12 @@ public class BowBehavior : MonoBehaviour {
 	public int maxChargeTime;
 	private int charge;
 
+	public AudioClip shotSound;
+	private AudioSource source;
+
 	// Use this for initialization
 	void Start () {
-	
+		source = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +25,7 @@ public class BowBehavior : MonoBehaviour {
 				if (charge >= maxChargeTime) {
 					Instantiate (arrow, transform.position, Quaternion.identity);
 					charge = 0;
+					source.PlayOneShot (shotSound);
 				}
 			}
 			if (!isRight && Input.GetKey (KeyCode.LeftArrow) ) {
@@ -30,6 +34,7 @@ public class BowBehavior : MonoBehaviour {
 				if (charge >= maxChargeTime) {
 					Instantiate (arrow, transform.position, Quaternion.identity);
 					charge = 0;
+					source.PlayOneShot (shotSound);
 				}
 			}
 		}
