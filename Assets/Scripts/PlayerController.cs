@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float jumpForce = 200f;
 	public Transform groundCheck;
 	public PlayerGroundCollider groundCollider;
-	private static List<GameObject> alivePlayers;
+	public static List<GameObject> alivePlayers;
 	public Camera2DFollow camera;
 	private ScoreManager score;
 

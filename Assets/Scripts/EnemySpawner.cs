@@ -10,19 +10,40 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject enemy1;
 
 	public float minSpawnRadius;
-	public int spawnChance; //Lower the more spawns
+	public int initialSpawnChance; //Lower the more spawns
 	public int maxSpawns;
 	public static int spawns;
+    private int old_alive;
+    private int minimumSpawn = 50;
+    private bool firstFrame = true;
+
+    private int spawnChance;
 
 	// Use this for initialization
 	void Start () {
-		spawns = 0;
-	}
+        spawns = 0;
+        spawnChance = initialSpawnChance;
+
+        InvokeRepeating("increaseSpawnChance", 10.0f, 1f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
+        print(spawnChance);
 
-		if (Input.GetKeyDown (KeyCode.P)) {
+        int alive =  3 - PlayerController.alivePlayers.Count + 1;
+
+        if(alive != old_alive && !firstFrame)
+        {   
+            spawnChance /= 2;
+            minimumSpawn -= 15;
+        }
+
+        firstFrame = false;
+
+        old_alive = 3 - PlayerController.alivePlayers.Count + 1;
+
+        if (Input.GetKeyDown (KeyCode.P)) {
 			print ("Current Spawns: " + spawns);
 		}
 
@@ -43,4 +64,12 @@ public class EnemySpawner : MonoBehaviour {
 			spawn.GetComponent<EnemyBehavior> ().SetTarget (thisPlayer);
 		}
 	}
+    
+    void increaseSpawnChance()
+    {
+        if (spawnChance > 50)
+        {
+            spawnChance--;
+        }
+    }
 }
