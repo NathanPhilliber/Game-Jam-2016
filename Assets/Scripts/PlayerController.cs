@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		//grounded = Physics.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
 		if (WorldControlManager.enabledWorld == dimension) {
-			if (Input.GetButtonDown ("Jump") && groundCollider.grounded) {
+			if (Input.GetButtonDown ("Jump") && groundCollider.grounded && rb.velocity.y < 0.02f) {
 				jump = true;
 				groundCollider.grounded = false;
 				source.PlayOneShot(jumpSound,1f);
@@ -168,6 +168,10 @@ public class PlayerController : MonoBehaviour {
 				anim.SetTrigger ("jump");
 				rb.AddForce (new Vector2 (0f, jumpForce));
 				jump = false;
+			}
+
+			if (dimension == 0) {
+				rb.AddForce (-Physics.gravity/6);
 			}
 		}
 	}

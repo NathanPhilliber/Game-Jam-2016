@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb0e799a5ea9487b86db245ef1aa87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPower: 10
+  arrowPower: 20
   isRight: 0
 --- !u!212 &212000012728401102
 SpriteRenderer:
