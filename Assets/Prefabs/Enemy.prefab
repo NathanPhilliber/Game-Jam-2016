@@ -322,7 +322,9 @@ MonoBehaviour:
   inRange: 0.4
   maxHealth: 60
   sprite: {fileID: 212000013530976132}
+  dead: 0
   deathSound: {fileID: 8300000, guid: 0c947f8e1680748e9801fa281d8a515c, type: 3}
+  stopEverything: 0
 --- !u!114 &114000012940450170
 MonoBehaviour:
   m_ObjectHideFlags: 1

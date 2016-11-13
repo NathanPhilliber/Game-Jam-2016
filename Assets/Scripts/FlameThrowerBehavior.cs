@@ -11,6 +11,7 @@ public class FlameThrowerBehavior : MonoBehaviour {
 	private int fuel;
 
 	private int soundCooldown;
+    public SpriteRenderer sprite;
 
 	public AudioClip throwerSound;
 	private AudioSource source;
@@ -36,7 +37,8 @@ public class FlameThrowerBehavior : MonoBehaviour {
 			}
 			if (Input.GetKey (KeyCode.RightArrow) && fuel > 0) {
 				fuel -=2;
-				GameObject spawned = (GameObject)Instantiate (flame, transform.position, Quaternion.identity);
+				GameObject spawned = (GameObject)Instantiate (flame, new Vector3(transform.position.x + .2f, 
+                                                      transform.position.y - .03f, transform.position.z), Quaternion.identity);
 				spawned.GetComponent<FlameBehavior> ().Fire (playerRb, true, fuel, maxFuel);
 				if (Input.GetKeyDown (KeyCode.RightArrow) && soundCooldown > 50) {
 					source.PlayOneShot (throwerSound);
@@ -45,13 +47,22 @@ public class FlameThrowerBehavior : MonoBehaviour {
 			}
 			if (Input.GetKey (KeyCode.LeftArrow) && fuel > 0) {
 				fuel -=2;
-				GameObject spawned = (GameObject)Instantiate (flame, transform.position, Quaternion.identity);
-				spawned.GetComponent<FlameBehavior> ().Fire (playerRb, false, fuel, maxFuel);
+                GameObject spawned = (GameObject)Instantiate(flame, new Vector3(transform.position.x - .2f,
+                                                      transform.position.y - .03f, transform.position.z), Quaternion.identity);
+                spawned.GetComponent<FlameBehavior> ().Fire (playerRb, false, fuel, maxFuel);
 				if (Input.GetKeyDown (KeyCode.LeftArrow) && soundCooldown > 50) {
 					source.PlayOneShot (throwerSound);
 					soundCooldown = 0;
 				}
-			}
+            }
+
+            if (player.facingRight)
+            {
+                sprite.flipX = true;
+            } else
+            {
+                sprite.flipX = false;
+            }
 		}
 	}
 }
