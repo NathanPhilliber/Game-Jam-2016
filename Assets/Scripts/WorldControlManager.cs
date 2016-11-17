@@ -17,6 +17,13 @@ public class WorldControlManager : MonoBehaviour {
 
 	public static int enabledWorld;
 
+	public SpriteRenderer arrowSprite;
+	public bool arrowMarkerEnabled;
+
+	public Transform cam0;
+	public Transform cam1;
+	public Transform cam2;
+
 	// Use this for initialization
 	void Start () {
 		source = GetComponent<AudioSource> ();
@@ -30,23 +37,28 @@ public class WorldControlManager : MonoBehaviour {
 	public void PlayPlayerDeathSound(){
 		source.PlayOneShot (playerDeathSound);
 	}
+
+	void UpdateArrow(){
+		if (arrowMarkerEnabled) {
+			switch (enabledWorld) {
+			case 0:
+				arrowSprite.transform.position = new Vector3 (cam0.position.x-3.5f, cam0.position.y, arrowSprite.transform.position.z);
+				break;
+			case 1:
+				arrowSprite.transform.position = new Vector3 (cam1.transform.position.x-3.5f, cam1.position.y, arrowSprite.transform.position.z);
+				break;
+			case 2:
+				arrowSprite.transform.position = new Vector3 (cam2.transform.position.x-3.5f, cam2.position.y, arrowSprite.transform.position.z);
+				break;
+				
+			}
+
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        /*
-		if (Input.GetKeyDown (KeyCode.UpArrow)) {
-			if (enabledWorld == EARTH || enabledWorld == HELL) {
-				enabledWorld--;
-				source.PlayOneShot (changeSound);
-			}
-		}
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
-			if (enabledWorld == HEAVEN || enabledWorld == EARTH) {
-				enabledWorld++;
-				source.PlayOneShot (changeSound);
-			}
-		}
-		*/
+		UpdateArrow ();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
@@ -64,6 +76,7 @@ public class WorldControlManager : MonoBehaviour {
 				enabledWorld = HELL;
 				source.PlayOneShot (changeSound);
 			}
+
 		} else if (enabledWorld == EARTH){
 			if (!heavenEnabled && !hellEnabled) {
 				return;
@@ -76,6 +89,7 @@ public class WorldControlManager : MonoBehaviour {
 				enabledWorld = HELL;
 				source.PlayOneShot (changeSound);
 			}
+
 		} else if (enabledWorld == HELL){
 			if (!earthEnabled && !heavenEnabled) {
 				return;
@@ -88,6 +102,7 @@ public class WorldControlManager : MonoBehaviour {
 				enabledWorld = HEAVEN;
 				source.PlayOneShot (changeSound);
 			}
+
 		}
 	}
 }

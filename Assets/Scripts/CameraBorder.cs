@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class CameraBorder : MonoBehaviour {
 
+
     public Texture2D textureImage;
     public Texture2D black;
     private bool fade;
@@ -15,7 +16,7 @@ public class CameraBorder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
     public Texture2D fadeTexture;
     float fadeSpeed = -0.2f;
@@ -43,18 +44,18 @@ public class CameraBorder : MonoBehaviour {
          }
 
 
-        int barWidth = Screen.height / 74;
+        int barWidth = Screen.height / 74;//74
 
         GUI.DrawTexture(new Rect(0, Screen.height / 3 - barWidth,  Screen.width, barWidth), black);
 
-        GUI.DrawTexture(new Rect(0, Screen.height / 3 * 2,     Screen.width, barWidth), black);
+        GUI.DrawTexture(new Rect(0, Screen.height / 3 * 2, Screen.width, barWidth), black);
 
         int world = WorldControlManager.enabledWorld;
 
         Rect borderSize = new Rect(0, world * Screen.height / 3, Screen.width, Screen.height / 3);
-        GUI.DrawTexture(borderSize, textureImage);
+		GUI.DrawTexture(borderSize, textureImage, ScaleMode.StretchToFill);
 
-        print(fade);
+        //print(fade);
 
         if (alpha < 1.0f && fade)
         {
