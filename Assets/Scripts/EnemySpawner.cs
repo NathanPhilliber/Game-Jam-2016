@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(spawnChance);
+        //print(spawnChance);
 
         int alive =  3 - PlayerController.alivePlayers.Count + 1;
 

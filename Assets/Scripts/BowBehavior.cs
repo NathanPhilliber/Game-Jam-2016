@@ -41,19 +41,13 @@ public class BowBehavior : MonoBehaviour
 		else if (player.facingRight && !isRight && sprite.enabled) {
 			sprite.enabled = false;
 		}
-
-
+			
         if (player.dimension == WorldControlManager.enabledWorld)
         {
 			if (isRight && Input.GetKey(KeyCode.RightArrow) && player.facingRight)
-            {
-				
-                //charge++;
-                //if (charge >= maxChargeTime - 20)
-                //{
-                    anim.SetBool("isFiring", true);
-                //}
-
+            {				           
+                anim.SetBool("isFiring", true);
+                
                 if (charge >= maxChargeTime)
                 {
                     Instantiate(arrow, transform.position, Quaternion.identity);
@@ -65,12 +59,7 @@ public class BowBehavior : MonoBehaviour
 			if (!isRight && Input.GetKey(KeyCode.LeftArrow) && !player.facingRight)
             {
 				
-                //charge++;
-
-                //if (charge >= maxChargeTime - 20)
-                //{
-                    anim.SetBool("isFiring", true);
-                //}
+                anim.SetBool("isFiring", true);
 
                 if (charge >= maxChargeTime)
                 {
@@ -82,8 +71,10 @@ public class BowBehavior : MonoBehaviour
                 }
             }
 
-            if (charge <= maxChargeTime)
-                charge++;
+			if (charge <= maxChargeTime) 
+			{
+				charge++;
+			}
 
             if (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             {

@@ -377,7 +377,7 @@ GameObject:
   - 65: {fileID: 348549445}
   - 23: {fileID: 348549444}
   m_Layer: 0
-  m_Name: Ground1 (1)
+  m_Name: Ground Earth
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -456,7 +456,7 @@ GameObject:
   - 65: {fileID: 486992473}
   - 23: {fileID: 486992472}
   m_Layer: 0
-  m_Name: Ground1 (3)
+  m_Name: Left Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,7 +697,7 @@ GameObject:
   - 65: {fileID: 820723298}
   - 23: {fileID: 820723297}
   m_Layer: 0
-  m_Name: Ground1
+  m_Name: Ground Hell
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -776,7 +776,7 @@ GameObject:
   - 65: {fileID: 843499159}
   - 23: {fileID: 843499158}
   m_Layer: 0
-  m_Name: Ground1 (4)
+  m_Name: Right Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1299,7 @@ GameObject:
   - 65: {fileID: 2085798181}
   - 23: {fileID: 2085798180}
   m_Layer: 0
-  m_Name: Ground1 (2)
+  m_Name: Ground Heaven
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

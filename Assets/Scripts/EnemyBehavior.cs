@@ -107,7 +107,7 @@ public class EnemyBehavior : MonoBehaviour {
 	void MoveTowardsTarget(){
 
 		if (Mathf.Abs (transform.position.y) > 120) {
-			print ("I got lost... I'll just kill myself");
+			//print ("I got lost... I'll just kill myself");
 			Die ();
 		}
 

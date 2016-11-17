@@ -56,7 +56,7 @@ public class Camera2DFollow : MonoBehaviour
 		Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward * m_OffsetZ;
 		if (target.transform.position.y - lastY < -.04f) {
 
-			print ("CATCH THE FUCK UP");
+
 			aheadTargetPos = new Vector3 (aheadTargetPos.x,aheadTargetPos.y-3f,aheadTargetPos.z);
 		}
 		lastY = target.position.y;

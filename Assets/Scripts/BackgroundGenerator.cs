@@ -15,12 +15,7 @@ public class BackgroundGenerator : MonoBehaviour
         placeClouds();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+	//Place all of the background image objects
     void placeClouds()
     {
         for (int i = 0; i < cloud.GetLength(0); i++)

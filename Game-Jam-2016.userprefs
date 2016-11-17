@@ -1,13 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CameraBorder.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="89" Column="8" />
       <File FileName="Assets/Scripts/WorldControlManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ControlsArrowBehavior.cs" Line="46" Column="5" />
-      <File FileName="Assets/Scripts/GameOverBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraBorder.cs" Line="55" Column="9" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/TitleBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerAntiStuck.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ArrowBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BackgroundGenerator.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BowBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Camera2DFollow.cs" Line="59" Column="4" />
+      <File FileName="Assets/Scripts/FlameThrowerBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FlameBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/EnemyBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

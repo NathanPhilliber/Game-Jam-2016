@@ -4599,7 +4599,7 @@ GameObject:
   - 4: {fileID: 1120538524}
   - 65: {fileID: 1120538523}
   m_Layer: 0
-  m_Name: Right Bound (1)
+  m_Name: Left Bound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
