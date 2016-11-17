@@ -7,8 +7,10 @@ Created by Nathan Philliber and Trace Rainbolt.
 Music by Grayson Goodman
 
 
-Game Description: You are stuck in Purgatory. You must dodge and destroy enemy repears before they kill you. 
+Game Description: You are stuck in Purgatory. You must dodge and destroy enemy reapers before they kill you. 
 The catch is that you must control all three platformer dimensions at the same time, essentially playing 3 games
 at once. Try to keep all three platformer characters alive to increase your score.
+
+Play on itch.io: https://nathanphilliber.itch.io/purgatory
 
 Gameplay Footage: https://youtu.be/NYx0zXyexLQ
